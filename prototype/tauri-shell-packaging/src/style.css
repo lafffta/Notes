@@ -1,0 +1,31 @@
+:root {
+  color: #e9edf5;
+  background: #10141d;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 720px; min-height: 100vh; }
+button { font: inherit; }
+#app { max-width: 1200px; margin: 0 auto; padding: 32px; }
+header { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+h1 { margin: 4px 0; font-size: 32px; }
+h2 { margin: 0 0 14px; font-size: 15px; letter-spacing: .04em; }
+.eyebrow { margin: 0; color: #8da2c8; font-size: 11px; font-weight: 800; letter-spacing: .16em; }
+.status { margin: 8px 0 0; color: #aeb9cb; }
+.primary { border: 0; border-radius: 9px; padding: 11px 17px; color: #08101e; background: #82b7ff; font-weight: 800; cursor: pointer; }
+.facts { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1px; margin: 28px 0 16px; overflow: hidden; border: 1px solid #293244; border-radius: 10px; background: #293244; }
+.facts div { min-width: 0; padding: 13px 15px; background: #171d29; }
+.facts span { display: block; color: #8996aa; font-size: 11px; text-transform: uppercase; }
+.facts strong { display: block; margin-top: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.workspace { display: grid; grid-template-columns: 280px minmax(0, 1fr); min-height: 390px; overflow: hidden; border: 1px solid #293244; border-radius: 10px; background: #171d29; }
+aside, article { padding: 18px; }
+aside { border-right: 1px solid #293244; }
+.notes { display: grid; gap: 5px; }
+.note { width: 100%; border: 0; border-radius: 6px; padding: 8px 10px; overflow: hidden; color: #bfc9d9; background: transparent; text-align: left; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; }
+.note:hover, .note.active { color: white; background: #28364d; }
+.empty { color: #7f8ca1; }
+pre { min-height: 320px; margin: 0; overflow: auto; color: #dce3ef; font: 13px/1.65 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; }
+.events { margin-top: 16px; padding: 18px; border: 1px solid #293244; border-radius: 10px; background: #171d29; }
+.events ol { display: grid; gap: 7px; margin: 0; padding-left: 24px; color: #9eabc0; font: 12px/1.45 ui-monospace, SFMono-Regular, Consolas, monospace; }
