@@ -1,0 +1,30 @@
+{
+  "name": "notes-editor-preview-prototype",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "prototype": "vite prototype/editor-preview --config prototype/editor-preview/vite.config.ts",
+    "prototype:build": "vite build prototype/editor-preview --config prototype/editor-preview/vite.config.ts"
+  },
+  "dependencies": {
+    "@codemirror/lang-markdown": "^6.3.4",
+    "@codemirror/view": "^6.38.1",
+    "@uiw/react-codemirror": "^4.24.2",
+    "katex": "^0.16.22",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-markdown": "^10.1.0",
+    "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.7",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
+  }
+}
