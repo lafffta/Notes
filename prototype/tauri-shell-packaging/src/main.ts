@@ -83,6 +83,8 @@ async function rescan(): Promise<void> {
 async function chooseVault(): Promise<void> {
   const selected = await open({
     directory: true,
+    recursive: true,
+    fileAccessMode: "scoped",
     multiple: false,
     title: "Choose a Notes Vault",
   });
