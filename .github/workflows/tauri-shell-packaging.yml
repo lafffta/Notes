@@ -1,0 +1,53 @@
+name: Tauri shell packaging prototype
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - prototype/tauri-shell-packaging
+    paths:
+      - "prototype/tauri-shell-packaging/**"
+      - ".github/workflows/tauri-shell-packaging.yml"
+
+jobs:
+  package:
+    name: ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows x64 NSIS
+            platform: windows-latest
+            rust_targets: ""
+            args: --bundles nsis
+          - name: macOS Apple Silicon DMG
+            platform: macos-latest
+            rust_targets: aarch64-apple-darwin
+            args: --target aarch64-apple-darwin --bundles dmg
+          - name: macOS Intel DMG
+            platform: macos-latest
+            rust_targets: x86_64-apple-darwin
+            args: --target x86_64-apple-darwin --bundles dmg
+
+    runs-on: ${{ matrix.platform }}
+    defaults:
+      run:
+        working-directory: prototype/tauri-shell-packaging
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: prototype/tauri-shell-packaging/package-lock.json
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.rust_targets }}
+      - run: npm ci
+      - uses: tauri-apps/tauri-action@v1
+        with:
+          projectPath: prototype/tauri-shell-packaging
+          args: ${{ matrix.args }}
+          uploadWorkflowArtifacts: true
+          workflowArtifactNamePattern: "[platform]-[arch]-[bundle]"

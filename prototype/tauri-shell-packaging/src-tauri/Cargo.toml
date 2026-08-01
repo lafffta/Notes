@@ -1,0 +1,19 @@
+[package]
+name = "notes-shell-prototype"
+version = "0.1.0"
+description = "Throwaway Tauri shell packaging prototype"
+authors = ["lafffta"]
+edition = "2021"
+
+[lib]
+name = "notes_shell_prototype_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = { version = "2", features = ["watch"] }
+tauri-plugin-persisted-scope = "2"
