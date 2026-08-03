@@ -20,6 +20,14 @@ _Avoid_: File path, filename
 The human-facing name of a Note, independent of its filename and folder location.
 _Avoid_: Filename, path
 
+**Attachment**:
+A non-Markdown file inside a Vault that one or more Notes reference. It remains user-owned independently of any Note.
+_Avoid_: Asset, blob, embedded file
+
+**Unreferenced Attachment**:
+An Attachment for which the application finds no resolvable Markdown reference in any readable Note. It is a cleanup candidate, not proof that the file is unused.
+_Avoid_: Orphan, unused file
+
 **Search Index**:
 A disposable, rebuildable representation of Vault contents used to find Notes. It is never authoritative.
 _Avoid_: Note store, database of record
